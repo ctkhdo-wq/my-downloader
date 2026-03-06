@@ -11,11 +11,11 @@ def download():
 
     output = '/tmp/video.mp4'
     
-    # זה התיקון שמונע מיוטיוב לחסום אותנו:
     ydl_opts = {
         'format': 'best', 
         'outtmpl': output, 
         'quiet': True,
+        'cookiefile': 'cookies.txt',  # <--- השורה החשובה שהוספנו!
         'extractor_args': {'youtube': ['player_client=android']}
     }
 
