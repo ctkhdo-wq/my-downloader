@@ -10,7 +10,14 @@ def download():
     if not url: return "Missing URL", 400
 
     output = '/tmp/video.mp4'
-    ydl_opts = {'format': 'best', 'outtmpl': output, 'quiet': True}
+    
+    # הוספנו את השורה של extractor_args כדי לעקוף את חסימת הרובוטים של יוטיוב
+    ydl_opts = {
+        'format': 'best', 
+        'outtmpl': output, 
+        'quiet': True,
+        'extractor_args': {'youtube': ['player_client=android']}
+    }
 
     try:
         if os.path.exists(output): os.remove(output)
