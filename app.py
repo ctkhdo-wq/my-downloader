@@ -11,7 +11,7 @@ def download():
 
     output = '/tmp/video.mp4'
     
-    # הוספנו את השורה של extractor_args כדי לעקוף את חסימת הרובוטים של יוטיוב
+    # זה התיקון שמונע מיוטיוב לחסום אותנו:
     ydl_opts = {
         'format': 'best', 
         'outtmpl': output, 
